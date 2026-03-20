@@ -2891,7 +2891,11 @@
   <!-- ============================================================ main modal form end ============================================================ -->
 <script>
 document.getElementById("mainForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+  e.preventDefault(); // STOP default form submit
+
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.innerHTML = "Please wait...";
+  submitBtn.disabled = true;
 
   const formData = {
     full_name: document.getElementById("name").value,
@@ -2904,19 +2908,36 @@ document.getElementById("mainForm").addEventListener("submit", function(e) {
 
   fetch("https://script.google.com/macros/s/AKfycbwSr7SJMBUuRnEPQ1Xw2yER_9th0FJvst8uNFcq6XwxefZBlBcKhytsy9uTIIYU3OkW/exec", {
     method: "POST",
+    mode: "no-cors", // 🔥 IMPORTANT
     body: JSON.stringify(formData),
     headers: {
       "Content-Type": "application/json"
     }
   })
-  .then(res => res.json())
-  .then(data => {
-    alert("Form submitted successfully!");
+  .then(() => {
+    submitBtn.innerHTML = "Submitted ✅";
     document.getElementById("mainForm").reset();
+
+    // ✅ SweetAlert Toast
+    Toast.fire({
+      icon: 'success',
+      title: 'Form submitted successfully'
+    });
+
+    // ✅ Show modal
+    var myModal = new bootstrap.Modal(document.getElementById('staticBackdropModal'));
+    myModal.show();
   })
-  .catch(err => {
-    alert("Error submitting form");
-    console.error(err);
+  .catch((error) => {
+    console.error(error);
+
+    Toast.fire({
+      icon: 'error',
+      title: 'Submission failed'
+    });
+
+    submitBtn.innerHTML = "Apply now for free";
+    submitBtn.disabled = false;
   });
 });
 </script>
@@ -3088,7 +3109,7 @@ document.getElementById("mainForm").addEventListener("submit", function(e) {
     formElements.forEach((form) => {
       const selectElement = form.querySelector(".stateData");
 
-      fetch('https://admin.collegeBharti.com/state/')
+      fetch('https://admin.collegeBharti.in/state/')
         .then(response => response.json())
         .then(data => {
           data.forEach(option => {
@@ -3224,25 +3245,11 @@ document.getElementById("mainForm").addEventListener("submit", function(e) {
         $(element).removeClass('error');
         $(element).closest('.form-control').removeClass('has-error');
       },
+      
       submitHandler: function (form) {
-        var email = $("#email").val();
-        var contactno = $("#contactno").val();
-        var name = $("#name").val();
-        var city = $("#city").val();
-        gtag('set', 'user_data', {
-          "email": email,
-          "phone_number": contactno,
-          "address": {
-            "first_name": name,
-            "city": city,
-          }
-        });
-        let submitButton = $(form).find("button[type='submit']");
-        submitButton.html(loaderHTML);
-        submitButton.prop('disabled', true);
-        form.submit();
-      }
-    });
+      document.getElementById("mainForm").dispatchEvent(new Event('submit'));
+  return false; // STOP default submission
+            });
   </script><iframe height="0" width="0" style="display: none; visibility: hidden;"></iframe>
 
 
