@@ -1,0 +1,629 @@
+<form method="POST" id="mainForm" action="process_lead.php" class="needs-validation"
+              novalidate="novalidate">
+              <input type="hidden" name="form" value="pop">
+              <div class="mb-3">
+
+                <input type="text" class="form-control" minlength="3" required="" name="full_name" id="name"
+                  placeholder="Enter Name" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" minlength="7" required="" name="email" id="email"
+                  placeholder="Enter Email" required>
+              </div>
+              <div class="mb-4 position-relative">
+                <input type="tel" class="form-control" minlength="10" maxlength="10" name="contactno"
+                  pattern="^[6789][0-9]{9}$" id="contactno" placeholder="Contact No." required>
+                <span class="position-absolute end-0 me-2 px-2 rounded-bottom text-success"
+                  style="bottom: -13px; background-color: rgb(212, 254, 232); font-size: 10px;"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                    class="bi bi-shield-fill-check" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z">
+                    </path>
+                  </svg> We don't spam </span>
+              </div>
+              <div class="mb-3">
+                <select class="form-select courseData" required="" name="course" id="course">
+                  <option selected="" disabled="" value="">Select Course</option>
+                  <option value="195">Online DBA Doctorate</option>
+                  <option value="1">Online MBA</option>
+                  <option value="14">Online Executive MBA</option>
+                  <option value="65">Online Dual MBA</option>
+                  <option value="2">Online MCA</option>
+                  <option value="3">Online MCom</option>
+                  <option value="4">Online MA</option>
+                  <option value="5">Online BBA</option>
+                  <option value="6">Online BCom</option>
+                  <option value="7">Online BA</option>
+                  <option value="8">Online BCA</option>
+                </select>
+              </div>
+
+              <!-- Specialization Dropdown -->
+              <div class="mb-3" id="specializationDiv" style="display: none;">
+                <select class="form-select" name="specialization" id="specialization">
+                  <option selected="" disabled="" value="">Select Specialization</option>
+                </select>
+              </div>
+
+
+              <div class="mb-3">
+                <select class="form-select stateData" required="" name="city" id="city">
+                  <option selected="" disabled="" value="">Select State</option>
+                  <option value="2"> Uttar Pradesh </option>
+                  <option value="27"> Maharashtra </option>
+                  <option value="1"> Delhi </option>
+                  <option value="14"> Bihar </option>
+                  <option value="23"> Karnataka </option>
+                  <option value="19"> Haryana </option>
+                  <option value="6"> Rajasthan </option>
+                  <option value="18"> Gujarat </option>
+                  <option value="4"> West Bengal </option>
+                  <option value="9"> Telangana </option>
+                  <option value="22"> Jharkhand </option>
+                  <option value="26"> Madhya Pradesh </option>
+                  <option value="24"> Kerala </option>
+                  <option value="32"> Odisha </option>
+                  <option value="8"> Tamil Nadu </option>
+                  <option value="11"> Andhra Pradesh </option>
+                  <option value="5"> Punjab </option>
+                  <option value="3"> Uttarakhand </option>
+                  <option value="13"> Assam </option>
+                  <option value="15"> Chandigarh </option>
+                  <option value="7"> Sikkim </option>
+                  <option value="16"> Chhattisgarh </option>
+                  <option value="17"> Goa </option>
+                  <option value="10"> Tripura </option>
+                  <option value="12"> Arunachal Pradesh </option>
+                  <option value="20"> Himachal Pradesh </option>
+                  <option value="21"> Jammu and Kashmir </option>
+                  <option value="25"> Lakshadweep </option>
+                  <option value="29"> Meghalaya </option>
+                  <option value="28"> Manipur </option>
+                  <option value="31"> Nagaland </option>
+                  <option value="33"> Puducherry </option>
+                  <option value="30"> Mizoram </option>
+                  <option value="34"> Andaman and Nicobar Island </option>
+                  <option value="35"> Dadra and Nagar Haveli </option>
+                  <option value="36"> Daman and Diu </option>
+                  <option value="37"> Ladakh </option>
+                  <option value="42"> Other </option>
+                </select>
+              </div>
+
+              <input type="hidden" id="activity" name="activity">
+              <!-- form contet start -->
+
+              <!-- <input type="hidden" value="pop" name="from"> -->
+              <div class="text-center form_desc">
+                <div class="text-center secure-bgcolor bg-gradient d-inline-block rounded"><span
+                    class="fs-12 fw-normal px-3 text-dark"><svg stroke="currentColor" fill="currentColor"
+                      stroke-width="0" viewBox="0 0 448 512" class="lock-icon" height="1em" width="1em"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z">
+                      </path>
+                    </svg> Your personal information is secure with us</span></div>
+              </div>
+              <div class="bg-white d-flex align-items-center justify-content-center gap-1 mt-3 flex-wrap py-2 rounded"
+                style="font-size: 12px;">
+                <div class="p-avatar-group p-component">
+                  <div class="p-avatar p-component p-avatar-image p-avatar-circle"><img alt="avatar"
+                      src="images/mentor-1.png"></div>
+                  <div class="p-avatar p-component p-avatar-image p-avatar-circle"><img alt="avatar"
+                      src="images/mentor-2.png"></div>
+                  <div class="p-avatar p-component p-avatar-image p-avatar-circle"><img alt="avatar"
+                      src="images/mentor-3.png"></div>
+                </div><span>Connect with Top CV Experts</span>⭐⭐⭐⭐⭐
+              </div>
+              <div class="position-relative text-center">
+                <button type="submit" id="submitBtn" class="btn text-white btn_custom loader_btn triggerOTP">Find best
+                  University</button>
+              </div>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section class="UpscCourse my-5 pt-4">
+    <div class="container">
+      <div class="row mb-3 mb-md-5">
+        <div class="col-12 mx-auto text-center col">
+          <h2 class="mb-2 fw-bold text-dark">Available Modes </h2>
+          <h4>Three Different Modes to suit you the best</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4 WhyChooseMBA">
+          <a href="./regular.html">
+          <div class="card MainHeroCard" style="background-color: #CAD6FF;">
+            <!-- <img src="img/about.jpg" class="card-img-top" alt="compare"> -->
+            <div class="card-body">
+              <h5 class="card-title text-dark">Regular University</h5>
+              <p class="Font-fs-15 fs-15">Academic Excellence That Leads to Opportunity</p>
+            </div>
+          </div></a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4 WhyChooseMBA">
+          <a href="#">
+            <div class="card MainHeroCard" style="background-color: #B9F5E6;">
+              <!-- <img src="img/about.jpg" class="card-img-top" alt="Counselling"> -->
+              <div class="card-body position-relative">
+                <h5 class="card-title text-dark">Distance University</h5>
+                <p class="Font-fs-15 fs-15">ODL Programs Designed for Working Professionals</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4 WhyChooseMBA">
+          <a href="#">
+          <div class="card MainHeroCard" style="background-color: #FFEEBA;">
+            <!-- <img src="img/about.jpg" class="card-img-top" alt="Community"> -->
+            <div class="card-body position-relative">
+              <h5 class="card-title text-dark">Online University</h5>
+              <p class="Font-fs-15 fs-15">Guiding You to the Right Online Course for a Brighter Future &nbsp;</p>
+            </div>
+          </div>
+        </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4 WhyChooseMBA">
+          <a href="#">
+          <div class="card MainHeroCard" style="background-color: #FFDDDD;">
+            <!-- <img src="img/about.jpg" class="card-img-top" alt="Community"> -->
+            <div class="card-body position-relative">
+              <h5 class="card-title text-dark">Bihar Student Credit Card University/College</h5>
+              <p class="Font-fs-15 fs-15">Get placement support with jobs &amp; internships offers</p>
+            </div>
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="mt-5 mb-mt-3">
+    <div class="container">
+      <div class="mb-3 mb-md-4 row">
+        <div class="col-12 col-xl-6 mx-auto text-center col">
+          <h2 class="main-heading mb-3 fw-bold textBlue" style="font-size: 1.7rem;">Top Distance (ODL) courses and
+            Online Courses to Match your Interest</h2>
+          <p>Choose Smarter. Learn Better. Succeed Faster.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="owl-carousel owl-theme owl-loaded owl-drag" id="SpecializationsDegree">
+
+          <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(-1563px, 0px, 0px); transition: all; width: 5941px;">
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online MA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 12 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAinIT" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online BBA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 21 <br>
+                        Course Duration - 3 Years<br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAinBusinessAnalytics" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online BCA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 15 <br>
+                        Course Duration - 3 Years <br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online B.COM</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 7 <br>
+                        Course Duration - 3 Years <br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online BA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 10 <br>
+                        Course Duration - 3 Years <br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item active" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="mbainfinance" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online MBA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 36 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="owl-item active" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="mbainfinance" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Dual MBA Online</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 13 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAinHR" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online MCA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 13 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation or Equivalent <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="OnlineMBA" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online M.COM</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 10 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online MA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 12 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAinIT" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online BBA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 21 <br>
+                        Course Duration - 3 Years<br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAinBusinessAnalytics" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online BCA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 15 <br>
+                        Course Duration - 3 Years <br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online B.COM</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 7 <br>
+                        Course Duration - 3 Years <br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online BA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 10 <br>
+                        Course Duration - 3 Years <br>
+                        Eligibility - 12th Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="mbainfinance" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online MBA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 36 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="mbainfinance" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Dual MBA Online</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 13 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAinHR" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online MCA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 13 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation or Equivalent <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="OnlineMBA" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain">Online M.COM</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 10 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation Pass out <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-item cloned" style="width: 302.672px; margin-right: 10px;">
+                <div class="item">
+                  <div class="card" style="cursor: pointer;">
+                    <img src="img/cat-2.jpg" alt="MBAingeneral" class="DataSectionmain">
+                    <div class="introductions">
+                      <h3 class="TitileHeroMain"> Online MA</h3>
+                      <p class="paragraphHeroMain">No. of Universities - 12 <br>
+                        Course Duration - 2 Years <br>
+                        Eligibility - Graduation <br>
+                        Learning Mode - Online <br>
+                        EMI Facility - Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
+                class="fas fa-chevron-left"></i></button><button type="button" role="presentation" class="owl-next"><i
+                class="fas fa-chevron-right"></i></button></div>
+          <div class="owl-dots disabled"></div>
+        </div>
+
+        <div class="text-center mb-3">
+          <button class="btn btn-primary KnowMoreBtn w-90 rounded-pill fs-14 ps-4 pe-3 pb-2" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">KNOW MORE <span class="d-inline-block arrow-box"><i
+                class="bi bi-arrow-right me-2 pt-1"></i></span></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="col-6">
+          <div class="headerContact text-end">
+            <a role="menuitem" class="p-menuitem-link text-decoration-none" aria-haspopup="false" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop">
+              <span class="p-menuitem-text">
+                <span class="rounded d-flex align-items-center position-relative"
+                  style="padding: 8px 5px; background-color: rgb(240, 248, 255);">
+                  <img alt="badge" src="images/badge.webp" height="20px" width="20px">
+                  <span class="ms-1">Suggest in 2 Mins</span>
+                  <span
+                    class="myshine position-absolute start-50 top-0 translate-middle shadow bgsecondary text-white px-2 py-1 rounded fs-11 border-0"
+                    style="width: max-content;">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" color="#fff"
+                      height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(255, 255, 255);">
+                      <path
+                        d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z">
+                      </path>
+                    </svg> AI-Powered
+                  </span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <form method="get" action="/search/results">
+      <div class="input-group border shadow-sm h-px-48 w-100 rounded-2 ps-1">
+        
+        <!-- Screen-reader-only label -->
+        <label for="keywords" class="visually-hidden">Search study programs</label>
+        
+        <input type="text" id="keywords" name="keywords" class="form-control border border-0 rounded-2-st ps-3" placeholder="search for a course" aria-describedby="search-help" required="">
+        
+        <button class="border border-0 m-1 border-top-right-radius bg-transparent pe-3 d-flex align-items-center" type="submit" aria-label="Submit search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85
+                    a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 
+                    5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Screen-reader-only help text -->
+      <span id="search-help" class="visually-hidden">
+        Enter a study program name, for example: Computer Science.
+      </span>
+    </form>
