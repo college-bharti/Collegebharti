@@ -3239,10 +3239,51 @@ document.getElementById("mainForm").addEventListener("submit", function(e) {
         $(element).closest('.form-control').removeClass('has-error');
       },
       
-      submitHandler: function (form) {
-      document.getElementById("mainForm").dispatchEvent(new Event('submit'));
-  return false; // STOP default submission
-            });
+     submitHandler: function (form) {
+
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.innerHTML = "Please wait...";
+  submitBtn.disabled = true;
+
+  const params = new URLSearchParams();
+  params.append("full_name", document.getElementById("name").value);
+  params.append("email", document.getElementById("email").value);
+  params.append("contactno", document.getElementById("contactno").value);
+  params.append("course", document.getElementById("course").options[document.getElementById("course").selectedIndex].text);
+  params.append("specialization", document.getElementById("specialization")?.value || "");
+  params.append("city", document.getElementById("city").options[document.getElementById("city").selectedIndex].text);
+
+  fetch("https://script.google.com/macros/s/AKfycbwSr7SJMBUuRnEPQ1Xw2yER_9th0FJvst8uNFcq6XwxefZBlBcKhytsy9uTIIYU3OkW/exec", {
+    method: "POST",
+    body: params
+  })
+  .then(() => {
+    submitBtn.innerHTML = "Submitted ✅";
+    submitBtn.disabled = false;
+    form.reset();
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Form submitted successfully'
+    });
+
+    var myModal = new bootstrap.Modal(document.getElementById('staticBackdropModal'));
+    myModal.show();
+  })
+  .catch((error) => {
+    console.error(error);
+
+    Toast.fire({
+      icon: 'error',
+      title: 'Submission failed'
+    });
+
+    submitBtn.innerHTML = "Apply now for free";
+    submitBtn.disabled = false;
+  });
+
+  return false; // prevent default submit
+}
   </script><iframe height="0" width="0" style="display: none; visibility: hidden;"></iframe>
 
 
