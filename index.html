@@ -2909,6 +2909,7 @@
     </div>
   </div>
 
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
@@ -3133,9 +3134,6 @@
   </script>
 
   <script>
-    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
-
-const db = getDatabase(app);
     const loaderHTML = '<div class="spinner-border spinner-border-sm" role="status"> <span class="visually-hidden"></span></div> Please Wait...';
 
     jQuery.validator.addMethod("iscontactno", function (value, element) {
@@ -3197,52 +3195,25 @@ const db = getDatabase(app);
         $(element).closest('.form-control').removeClass('has-error');
       },
       submitHandler: function (form) {
-  let submitButton = $(form).find("button[type='submit']");
-  submitButton.html(loaderHTML);
-  submitButton.prop('disabled', true);
-
-  const name = $("#name").val();
-  const email = $("#email").val();
-  const phone = $("#contactno").val();
-  const course = $("#course").val();
-  const state = $("#city").val();
-  const specialization = $("#specialization").val() || "";
-
-  // Firebase save
-  push(ref(db, "leads/"), {
-    name: name,
-    email: email,
-    phone: phone,
-    course: course,
-    state: state,
-    specialization: specialization,
-    timestamp: new Date().toISOString()
-  })
-  .then(() => {
-    Swal.fire({
-      icon: "success",
-      title: "Submitted!",
-      text: "Our team will contact you soon."
-    });
-
-    form.reset();
-    submitButton.html("Apply now for free");
-    submitButton.prop('disabled', false);
-  })
-  .catch((error) => {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: error.message
-    });
-
-    submitButton.html("Apply now for free");
-    submitButton.prop('disabled', false);
-  });
-}
+        var email = $("#email").val();
+        var contactno = $("#contactno").val();
+        var name = $("#name").val();
+        var city = $("#city").val();
+        gtag('set', 'user_data', {
+          "email": email,
+          "phone_number": contactno,
+          "address": {
+            "first_name": name,
+            "city": city,
+          }
+        });
+        let submitButton = $(form).find("button[type='submit']");
+        submitButton.html(loaderHTML);
+        submitButton.prop('disabled', true);
+        form.submit();
+      }
     });
   </script><iframe height="0" width="0" style="display: none; visibility: hidden;"></iframe>
-
 
 
 
