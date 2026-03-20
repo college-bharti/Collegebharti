@@ -1,0 +1,442 @@
+@media (max-width: 992px) {
+
+    .container {
+        max-width: 90%;
+    }
+
+    .headpoints.text-center h6 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    h3 {
+        font-size: 21px;
+    }
+
+    h5 {
+        font-size: 17px;
+    }
+
+    h6 {
+        font-size: 15px;
+    }
+
+    .contentbanner h1 {
+        font-size: 1rem;
+    }
+
+    .onlineimages {
+        width    : 100%;
+        max-width: 100%;
+    }
+
+}
+
+@media (min-width: 200px) and (max-width: 575px) {
+    .mainmentorecont {
+        display: block;
+    }
+}
+
+@media (max-width: 450px) {
+    img.GifImg {
+        width: 20px !important;
+    }
+
+    .fs-12 {
+        font-size: 10px;
+    }
+
+    .celebrateModal {
+        width: 90% !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .fs-12 {
+        font-size: 8px !important;
+    }
+}
+
+@media (max-width: 450px) {
+    button.btn.btn-primary.position-absolute {
+        top      : 209px !important;
+        font-size: 13px;
+        left     : 17px !important;
+    }
+}
+
+@media (max-width: 350px) {
+    button.btn.btn-primary.position-absolute {
+        top      : 182px !important;
+        left     : 17px !important;
+        font-size: 12px !important;
+    }
+
+    .keyImage {
+        width: 27%;
+    }
+}
+
+@media (max-width: 320px) {
+    .fs-13 {
+        font-size: 11px;
+    }
+
+    .applyNowPop {
+        padding: 0px 0 25px;
+    }
+
+    .ApplyNow {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    button.btn.btn-primary.position-absolute {
+        top : 377px;
+        left: 50px;
+    }
+
+    .Hallmarkdiv {
+        padding      : 0 5px 0 5px;
+        border-radius: 12px;
+    }
+
+    .HallMarkHero {
+        width    : 50%;
+        font-size: 13px;
+    }
+
+    img.HallmarkLogo {
+        width: 40px !important;
+    }
+}
+
+@media (max-width: 360px) {
+
+    small.mx-1 {
+        font-size: 7px !important;
+    }
+
+}
+
+@media (max-width: 280px) {
+    span.ms-1 {
+        font-size: 9px;
+    }
+
+    .myshine {
+        font-size: 8px;
+    }
+
+}
+@media only screen and (min-width: 786px) and (max-width: 1024px) {
+    .key-wrapper .key-wrap .key-title {
+        font-size: 16px;
+    }
+	
+	.key-wrapper .key-wrap .key-content {
+        font-size: 12px;
+    }
+	    .key-wrapper .key-wrap .icon {
+        font-size: 20px;
+    }
+}
+@media (max-width: 786px) {
+	    .key-wrapper .key-wrap .icon {
+        font-size: 20px;
+        margin: 0 auto;
+    }
+	.key-wrapper .key-wrap {
+        flex-direction: column;
+        text-align: center;
+        width: calc(33.33% - 10px);
+        align-items: center !important;
+        background-color: #f2f3f8;
+        margin: 0 5px;
+        border-radius: 6px;
+        padding: 10px 7px;
+    }
+	    .key-wrapper .key-wrap .key-title {
+        font-size: 12px;
+        margin: 5px 0;
+        font-weight: 700;
+    }
+	
+	    .key-wrapper .key-wrap .key-content {
+        font-size: 9px;
+        margin-top: 2px !important;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+    }
+
+    span.myshine {
+        font-size: 7px;
+    }
+
+    .applyNowPop {
+        padding: 0px 7px 30px;
+    }
+
+    i.fas.fa-chevron-left {
+        font-size: 21px;
+        height   : 30px;
+        width    : 30px;
+    }
+
+    i.fas.fa-chevron-right {
+        font-size: 21px;
+        height   : 30px;
+        width    : 30px;
+    }
+
+    .Testimonial_huge_number__cVBrA {
+        font-size: 50px;
+    }
+
+    small.mx-1 {
+        font-size: 9px;
+    }
+
+    .headerContact a {
+        font-size: 12px;
+    }
+
+    .herodescription {
+        font-size: 1rem;
+    }
+
+    h2.d-inline-block.mb-4 {
+        font-size: 18px;
+    }
+
+    h4.mb-4 {
+        font-size: 16px;
+    }
+
+    h2.d-inline-block.mb-4.pb-2.text-center {
+        font-size: 20px;
+    }
+
+    .sec-title:after {
+        content   : "";
+        position  : absolute;
+        height    : 0px;
+        width     : 100px;
+        background: #fff;
+    }
+
+    h2.mb-5.mt-4.fw-bold.text-center {
+        font-size: 20px;
+    }
+
+    .keyheighlights {
+        width: 100%;
+    }
+
+    .sec-title.mb-5 {
+        text-align: center;
+    }
+
+    .headerContact a {
+        font-size: 11px;
+    }
+
+    .herodescriptionmain {
+        font-size  : 1.3rem;
+        font-weight: 700;
+    }
+
+    .MainHeading {
+        font-size: 2rem;
+    }
+
+    .bannersection::before {
+        content   : "";
+        position  : absolute;
+        inset     : 0;
+        background: #000;
+    }
+
+    .contentbanner {
+        text-align: center;
+        margin-top: 23px;
+    }
+
+    .brochureBanner {
+        display: none;
+    }
+
+    .downloadBrochur {
+        background-color: transparent !important;
+    }
+
+    .brochurHeader {
+        justify-content: center;
+    }
+
+    .buttonClosed {
+        position: absolute;
+        top     : 10px;
+        right   : 10px;
+    }
+
+    .ceo-section h1 {
+        padding: 35px 15px;
+    }
+
+}
+
+@media (min-width: 995px) and (max-width: 1300px) {
+    .keyheighlights {
+        height: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+    .logoHeroContainer {
+        width: 25%;
+    }
+}
+
+@media (min-width: 451px) and (max-width: 767px) {
+    .logoHeroContainer {
+        width: 33%;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 450px) {
+    .logoHeroContainer {
+        width: 50%;
+    }
+}
+
+@media (min-width: 540px) and (max-width: 750px) {
+    .HelpChooseUniversity {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 1300px) {
+    .logoHeroContainer img {
+        width     : 100%;
+        margin    : 10px;
+        object-fit: contain;
+    }
+
+    iframe.rounded {
+        width        : 100%;
+        height       : 270px;
+        border-radius: 11px !important;
+        background   : #000;
+        padding      : 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .fs-12 {
+        font-size: 10px;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .contentbanner h1 {
+        font-size: 1.5rem;
+    }
+
+    .testLogo {
+        border    : none;
+        box-shadow: none;
+        padding   : 15px;
+    }
+
+    .headerContact button,
+    .menu-item {
+        display: none !important;
+    }
+
+    .thankyuousection {
+        padding: 0px 15px;
+    }
+
+    .thankyuousection h1 {
+        font-size: 2.7rem;
+    }
+
+    .thankyuousection p {
+        font-size: 18px;
+    }
+
+    .thankyuousection i.fa-solid.fa-check {
+        font-size: 3.5rem;
+    }
+
+    button.btn.btn_custom {
+        font-size: 14px;
+    }
+
+    a.callbutton {
+        padding: 5px 15px;
+    }
+
+    .keyheighlights {
+        background   : #fff;
+        color        : #333 !important;
+        padding      : 10px 0;
+        border-radius: 5px;
+        margin       : 0 auto 18px;
+        width        : 100%;
+        height       : 100%;
+    }
+
+    .feature_card {
+        margin-bottom: 50px;
+    }
+
+    .ceo-section h1 {
+        padding: 30px 15px;
+    }
+
+    .ceo-section iframe {
+        height: 230px;
+    }
+
+    #studentWork .item {
+        padding: 0;
+    }
+
+    .still_unsure::after {
+        display: none;
+    }
+
+    .universityChoose {
+        width: 98%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .MainHeroCard {
+        height: 270px;
+    }
+}
+
+@media (min-width: 530px) and (max-width: 767px) {
+    .WhyChooseMBA {
+        width: 50%;
+    }
+}
